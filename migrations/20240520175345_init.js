@@ -4,7 +4,7 @@ exports.up = async(knex) => {
     table.increments().primary();
     table.string('brand').notNullable();
     table.boolean('status').notNullable();
-    table.timestamp('dateOfRealise', {useTz: false}).notNullable();
+    table.string('dateOfRealise').notNullable();
     table.string('innerColor').notNullable();
     table.string('externalColor').notNullable();
     table.boolean('transmission').notNullable();
@@ -16,6 +16,8 @@ exports.up = async(knex) => {
     table.integer('carInstanceId').notNullable();
     table.timestamp('deletedAt', {useTz: false});
     table.timestamp('buyAt', {useTz: false});
+    table.integer('price').notNullable();
+    table.string('photoUrl');
 
     table.foreign('carInstanceId').references('cars.id');
   });
@@ -37,6 +39,7 @@ exports.up = async(knex) => {
     table.integer('detailInstanceId').notNullable();
     table.timestamp('deletedAt', {useTz: false});
     table.timestamp('buyAt', {useTz: false});
+    table.integer('price').notNullable();
 
     table.foreign('detailInstanceId').references('details.id');
   });
