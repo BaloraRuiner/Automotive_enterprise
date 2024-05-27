@@ -71,7 +71,6 @@ router.post('/getCarsList', async(req, res) => {
   console.log(result);
 
  res.send(result).status(200);
-
 });
 
 router.post('/getDetailsList', async(req, res) => {
@@ -92,7 +91,7 @@ router.post('/getDetailsList', async(req, res) => {
 
 router.post('/createCar', async(req, res) => {
   const {brand, status, dateOfRealise, innerColor, externalColor, transmission} = req.body;
-
+  console.log(req.body)
   const model = db('cars').insert({
     brand,
     status,
@@ -137,7 +136,7 @@ router.post('/createDetailInstance', async(req, res) => {
 router.post('/createOrder', async(req, res) => {
   const {orderStaffId, orderType, userId} = req.body;
 
-  const createdAt = new Date();
+  const createdAt  = new Date();
 
   let orderId;
 
